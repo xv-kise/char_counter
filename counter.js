@@ -27,16 +27,17 @@ function count_chars(text){
     }
     //多い順に並べ替えて表示を成型
     result.sort((a, b) => b[1] - a[1]);
-    var temp1 = []
-    var rank = 1
-    var i1_before = 0
+    var temp1 = [];
+    var rank = 1;
+    var i1_before = 0;
     for (var n = 0; n < result.length; n++){
-        i = result[n]
-        //同率を同じ数字に
-        if (i[1] != i1_before)
-            rank = n + 1
-        i1_before = result[n][1]
-        temp1.push(rank + "/<b>" + i[0] + "</b>/" + i[1] + "回")
+        i = result[n];
+        //同率を同じ順位に
+        if (i[1] != i1_before){
+            rank = n + 1;
+        }
+        i1_before = result[n][1];
+        temp1.push(rank + "/<b>" + i[0] + "</b>/" + i[1] + "回");
     }
     return "順位/文字/回数<br>" + temp1.join("<br>");
 }
