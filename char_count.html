@@ -1,0 +1,19 @@
+<!--出力をちゃんとした表(<table>タグ)にしたりCSSでいい感じに装飾したりしたい-->
+<!DOCTYPE html>
+<head>
+    <title>文字使用頻度カウンター</title>
+</head>
+<body>
+    <div style="text-align: center;">
+    <h2>文字使用頻度カウンター</h2>
+    <p>
+        テキストに使われている文字の種類ごとの使用回数を数えるツール<br>
+        ↓ここにテキストを入力
+    </p>
+    <textarea rows="10" cols="50" id="input"></textarea><br>
+    <button type="button" onclick="count_and_display();">count!</button>
+    <h3>結果</h3>
+    <p id="result">...</p><!--結果表示欄-->
+    </div>
+    <script src="counter.js"></script>
+</body>
