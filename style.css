@@ -1,0 +1,8 @@
+body {background-color: white;}
+
+#result table{
+    margin: auto;
+    border: 2px solid black;
+    border-collapse: collapse;}
+#resulttable th, td {
+    border: 1px solid black;}
