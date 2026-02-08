@@ -3,17 +3,20 @@
     <title>文字使用回数カウンター</title>
 </head>
 <body>
-    <div style="text-align: center;">
+    <div id="main">
     <h1>文字使用回数カウンター</h1>
     <p>
         テキストに使われている文字の種類ごとの使用回数を数えるツール<br>
         ↓ここに数えたいテキストを入力
     </p>
-    <textarea rows="10" cols="50" id="input"></textarea><br>
+    <textarea rows="15" cols="70" id="input"></textarea><br>
     正規表現: <input type="checkbox" id="regex?">　<input cols="1" id="regexbox"><br>
-    <button type="button" onclick="count_and_display();">count!</button>
-    <h3>結果</h3>
+    <br>
+    <button id="count_button" type="button" 
+    onclick="count_and_display();"><b>カウント</b></button><br>
+    <br>
     <div id="result">
+        <span id="numbers">全...文字/...種類</span>
         <p id="resulttable">...</p>
     </div>
     </div>
