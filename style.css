@@ -1,8 +1,40 @@
-body {background-color: white;}
-
+html, body {
+    height: 100%;
+    margin: 0;
+}
+body {
+    background-color: #eee;
+    font-family: "meiryo", "hiragino sans";
+}
+#main {
+    background-color: white;
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    min-height: 100vh;
+    padding-bottom: 20px;
+}
+#main h1{
+    margin-top: 0px;
+    background-color: #ffa;
+}
+#count_button{
+    background-color: lightskyblue;
+    font-size: 20px;
+    border-radius: 5px;
+}
+#numbers{
+    font-weight: bold;
+}
 #result table{
     margin: auto;
     border: 2px solid black;
-    border-collapse: collapse;}
-#resulttable th, td {
-    border: 1px solid black;}
+    border-collapse: collapse;
+}
+#resulttable td, th {
+    border: 1px solid black;
+}
+#resulttable th {
+    background-color: lightgray;
+    border-bottom-width: 2px;
+}
