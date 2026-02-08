@@ -8,13 +8,15 @@ body {
 }
 #main {
     background-color: white;
-    width: 700px;
+    width: 600px;
     margin: 0 auto;
     text-align: center;
     min-height: 100vh;
+    padding: 0 50px;
     padding-bottom: 20px;
 }
 #main h1{
+    margin: 0 -50px;
     margin-top: 0px;
     background-color: #ffa;
 }
