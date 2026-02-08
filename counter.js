@@ -2,12 +2,14 @@ let box1 = document.getElementById("input");
 let resultdiv = document.getElementById("result");
 let regex_check = document.getElementById("regex?");
 let regexbox = document.getElementById("regexbox");
+let numbers = document.getElementById("numbers");
 
 //ラベル書き換え（汎用）
 function changelabel(label, next_text){ 
     let text = document.getElementById(label);
     text.innerHTML = next_text;
 }
+let tokens_save = []
 function count_chars(text){
     let counts = {};
     let tokens =[]
@@ -72,6 +74,7 @@ function count_chars(text){
         i1_before = result[n][1];
         temp1.push([rank, i[0] , i[1]]);
     }
+    tokens_save = tokens
     return temp1;
 }
 //メインのラベル書き換え
@@ -87,7 +90,7 @@ function count_and_display(){
     let temp2 = ""
     let temp3 = ""
     temp2 = document.createElement("tr");
-    for (let n of ["#", "文字", "回数"]){
+    for (let n of ["#", "文字", "回数"]){//ヘッダーを作成
         temp3 = document.createElement("th");
         temp3.textContent = n
         temp2.appendChild(temp3)
@@ -103,7 +106,13 @@ function count_and_display(){
         resulttable.appendChild(temp2);
     }
     resulttable.id="resulttable";
-
-    //changelabel("result", count_chars(box1.value));
+    
+    let moji_or_hit = ""//正規表現モードかどうかに応じて単位を変える
+    if (regex_check.checked){
+        moji_or_hit = "ヒット"
+    } else {
+        moji_or_hit = "文字"
+    }
+    changelabel("numbers", `全${tokens_save.length}${moji_or_hit}/${resultlist.length}種類`);
     resultdiv.replaceChild(resulttable, resultp);
 }
