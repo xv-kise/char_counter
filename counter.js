@@ -7,9 +7,9 @@ let numbers = document.getElementById("numbers");
 //ラベル書き換え（汎用）
 function changelabel(label, next_text){ 
     let text = document.getElementById(label);
-    text.innerHTML = next_text;
+    text.textContent = next_text;
 }
-let tokens_save = []
+let tokens_len = []
 function count_chars(text){
     let counts = {};
     let tokens =[]
@@ -23,24 +23,17 @@ function count_chars(text){
     //出現回数カウント
     if (mode == "char"){
         for (let n = 0; n < text.length; n++){
-            //i = text[n];
             tokens.push(text[n]);
-            /*
-            if (i in convert_list) {
-            //if (!(i in convert_list)) {
-                i = convert_list[i];}
-            
-            if (i in counts){
-                counts[i] += 1;
-            } else {
-                counts[i] = 1;
-            }//}
-            */
         }
     } else if (mode == "regex"){
         //正規表現の処理
-        let pattern = RegExp(regexbox.value, "g");
-        tokens = box1.value.match(pattern)
+        try{
+            let pattern = RegExp(regexbox.value, "g");
+            tokens = box1.value.match(pattern)
+        } catch(e) {
+            console.log( e.message );
+            tokens = ["(無効な正規表現)"]
+        }
         if (tokens == null){
             tokens = ["(マッチなし)"]
         }
@@ -74,16 +67,13 @@ function count_chars(text){
         i1_before = result[n][1];
         temp1.push([rank, i[0] , i[1]]);
     }
-    tokens_save = tokens
+    tokens_len = tokens.length
     return temp1;
 }
 //メインのラベル書き換え
-
 function count_and_display(){
-    box1 = document.getElementById("input");
-    resultdiv = document.getElementById("result");
-    resultp = document.getElementById("resulttable");
-
+    let resultp = document.getElementById("resulttable");
+    
     //置き換え後の表作成
     let resultlist = count_chars(box1.value);
     let resulttable = document.createElement("table");
@@ -113,6 +103,6 @@ function count_and_display(){
     } else {
         moji_or_hit = "文字"
     }
-    changelabel("numbers", `全${tokens_save.length}${moji_or_hit}/${resultlist.length}種類`);
+    changelabel("numbers", `全${tokens_len}${moji_or_hit}/${resultlist.length}種類`);
     resultdiv.replaceChild(resulttable, resultp);
 }
