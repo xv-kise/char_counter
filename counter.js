@@ -12,7 +12,7 @@ function changelabel(label, next_text){
 let tokens_len = []
 function count_chars(text){
     let counts = {};
-    let tokens =[]
+    let tokens = [];
     let i = "";
     let convert_list = {"\n": "(改行)", " ": "(空白)", "　": "(全角空白)", "\t": "(Tab)"};
     //↑単体で分かりにくい文字の置き換え対応一覧
@@ -29,13 +29,13 @@ function count_chars(text){
         //正規表現の処理
         try{
             let pattern = RegExp(regexbox.value, "g");
-            tokens = box1.value.match(pattern)
+            tokens = box1.value.match(pattern);
         } catch(e) {
             console.log( e.message );
-            tokens = ["(無効な正規表現)"]
+            tokens = ["(無効な正規表現)"];
         }
         if (tokens == null){
-            tokens = ["(マッチなし)"]
+            tokens = ["(マッチなし)"];
         }
     }
 
@@ -46,7 +46,7 @@ function count_chars(text){
             counts[i] += 1;
         } else {
             counts[i] = 1;
-        }//}
+        }
     }
 
     let result = []
@@ -72,7 +72,7 @@ function count_chars(text){
 }
 //メインのラベル書き換え
 function count_and_display(){
-    let resultp = document.getElementById("resulttable");
+    let table_div = document.getElementById("table_div");
     
     //置き換え後の表作成
     let resultlist = count_chars(box1.value);
@@ -95,14 +95,14 @@ function count_and_display(){
         }
         resulttable.appendChild(temp2);
     }
-    resulttable.id="resulttable";
     
     let moji_or_hit = ""//正規表現モードかどうかに応じて単位を変える
     if (regex_check.checked){
-        moji_or_hit = "ヒット"
+        moji_or_hit = "ヒット";
     } else {
-        moji_or_hit = "文字"
+        moji_or_hit = "文字";
     }
     changelabel("numbers", `全${tokens_len}${moji_or_hit}/${resultlist.length}種類`);
-    resultdiv.replaceChild(resulttable, resultp);
+    table_div.innerHTML = "";
+    table_div.appendChild(resulttable);
 }
