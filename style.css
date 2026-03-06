@@ -20,7 +20,10 @@ body {
     margin-top: 0px;
     background-color: #ffa;
 }
-#count_button{
+#main h2{
+    font-size: 20px
+}
+#ok_button{
     background-color: lightskyblue;
     font-size: 20px;
     border-radius: 5px;
@@ -33,10 +36,10 @@ body {
     border: 2px solid black;
     border-collapse: collapse;
 }
-#resulttable td, th {
+#table_div td, th {
     border: 1px solid black;
 }
-#resulttable th {
+#table_div th {
     background-color: lightgray;
     border-bottom-width: 2px;
 }
