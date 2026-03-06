@@ -7,18 +7,19 @@
     <div id="main">
     <h1>文字使用回数カウンター</h1>
     <p>
-        テキストに使われている文字、または正規表現にマッチする文字列の使用回数を種類ごとに数えるツール<br>
-        ↓ここに数えたいテキストを入力
+        テキストに使われている文字または正規表現にマッチする文字列の使用回数を種類ごとに数えるツール<br>
     </p>
+    <h2>数えたいテキスト</h2>
     <textarea rows="15" cols="70" id="input"></textarea><br>
     正規表現モード: <input type="checkbox" id="regex?">　<input cols="1" id="regexbox"><br>
     <br>
-    <button id="count_button" type="button" 
+    <button id="ok_button" type="button" 
     onclick="count_and_display();"><b>カウント</b></button><br>
     <br>
+    <h2>結果</h2>
     <div id="result">
         <span id="numbers" style="font-weight: bold">全...文字/...種類</span>
-        <p id="resulttable">...</p>
+        <div id="table_div">...</div>
     </div>
     </div>
     <script src="counter.js"></script>
